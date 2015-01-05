@@ -5,39 +5,38 @@
 Сколько всего таких билетов?
 """
 
-l = 8
-v = 4+1
+l = 8 # Кол-во цифр в номере билета
+v = 4 # Каждая цифра от 0 до v
 c = [0 for i in range(l)]
+r = [v for i in range(l)]
 n = 0
 
-
-# for j in range (l-1, -1, -1):
-#     jj = j
-#     for i in range(v):
-#         c[jj]=i
-#         print(c)
-
 # Генерация номеров билетов
-# пока немного говнокода
-for c[0] in range(v):
-    for c[1] in range(v):
-        for c[2] in range(v):
-            for c[3] in range(v):
-                for c[4] in range(v):
-                    for c[5] in range(v):
-                        for c[6] in range(v):
-                            for c[7] in range(v):
-                                # Проверка условия задачи
-                                for iz in range(l):
-                                    s1=0
-                                    s2=0
-                                    for jz in range(iz):
-                                        s1 += c[jz]
-                                    for jz in range(iz, l):
-                                        s2 += c[jz]
-                                    if s1==s2:
-                                        n+=1
-                                        break
+while c != r:
+    for j in range(l):
+        allV = True
+        for i in range(j, l):
+            if c[i] != v:
+                allV = False
+                break
+        if allV:
+            c[j - 1] += 1
+            for i in range(j, l):
+                c[i] = 0
+    for i in range(v + 1):
+        c[l - 1] = i
+        print(c)
+        # Проверка условия задачи
+        for iz in range(l):
+            s1=0
+            s2=0
+            for jz in range(iz):
+                s1 += c[jz]
+            for jz in range(iz, l):
+                s2 += c[jz]
+            if s1==s2:
+                n+=1
+                break
 print(n)
 
 # Ответ 78125
