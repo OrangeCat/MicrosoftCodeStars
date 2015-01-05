@@ -19,20 +19,13 @@ t = 'Албанский'
 d.add(f)
 
 while 1==1:
-    oyes = False
     d2.clear()
     for z in l:
         if z[0] in d:
             d2.add(z[1])
-            oyes = True
-        if z[1] in d:
-            d2.add(z[0])
-            oyes = True
-    if oyes == True:
-        d.update(d2)
-        n += 1
+    d.update(d2)
+    n += 1
     if t in d:
         break
 
 print (n)
-#print(d)
