@@ -1,0 +1,108 @@
+{
+ "worksheets": [
+  {
+   "cells": [
+    {
+     "cell_type": "code",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "70.0\n2.504248278329309\n",
+       "text": [
+        "70.0\n2.504248278329309\n"
+       ]
+      }
+     ],
+     "input": [
+      "myletters = {'x','y','z','w'}\n",
+      "altletters = {'a','b','c','d'}\n",
+      "s = ''\n",
+      "\n",
+      "with open('106.data', 'r', encoding=\"utf-8\") as inf:\n",
+      "    for st in inf:\n",
+      "        s = st\n",
+      "\n",
+      "mlen_max = 0\n",
+      "alen_max = 0\n",
+      "\n",
+      "mlen = 0\n",
+      "alen = 0\n",
+      "\n",
+      "for c in s:\n",
+      "    if c in myletters:\n",
+      "        mlen += 1\n",
+      "        if alen > 0:\n",
+      "            alen_max = max(alen_max, alen)\n",
+      "            alen = 0\n",
+      "    elif c in altletters:\n",
+      "        alen += 1\n",
+      "        if mlen > 0:\n",
+      "            mlen_max = max(mlen_max, mlen)\n",
+      "            mlen = 0\n",
+      "    # else:\n",
+      "    #     if alen > 0:\n",
+      "    #         alen_max = max(alen_max, alen)\n",
+      "    #         alen = 0\n",
+      "    #     if mlen > 0:\n",
+      "    #         mlen_max = max(mlen_max, mlen)\n",
+      "    #         mlen = 0\n",
+      "            \n",
+      "print (mlen_max/(mlen_max+alen_max)*100)\n",
+      "print (mlen_max/(len(s))*100)"
+     ],
+     "language": "python",
+     "prompt_number": 16
+    },
+    {
+     "cell_type": "code",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "0.6852979155137429\n0.6645201681423843\n",
+       "text": [
+        "0.6852979155137429\n0.6645201681423843\n"
+       ]
+      }
+     ],
+     "input": [
+      "myletters = {'x','y','z','w'}\n",
+      "altletters = {'a','b','c','d'}\n",
+      "s = ''\n",
+      "\n",
+      "with open('106.data', 'r', encoding=\"utf-8\") as inf:\n",
+      "    for st in inf:\n",
+      "        s = st\n",
+      "\n",
+      "mlen = 0\n",
+      "alen = 0\n",
+      "\n",
+      "for c in s:\n",
+      "    if c in myletters:\n",
+      "        mlen += 1\n",
+      "    elif c in altletters:\n",
+      "        alen += 1\n",
+      "print (mlen/(mlen+alen))\n",
+      "print (mlen/len(s))"
+     ],
+     "language": "python",
+     "prompt_number": 7
+    },
+    {
+     "cell_type": "code",
+     "metadata": {},
+     "outputs": [],
+     "input": [
+      ""
+     ],
+     "language": "python"
+    }
+   ]
+  }
+ ],
+ "cells": [],
+ "metadata": {},
+ "nbformat": 3,
+ "nbformat_minor": 0
+}
