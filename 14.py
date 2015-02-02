@@ -19,8 +19,11 @@
 (y-y1)/(y2-y1)=(x-x1)/(x2-x1)
 Для каждого X точки считаем Y реки и сравниваем с Y точки
 """
+from decimal import *
+from fractions import Fraction
 
-r=''
+r = ''
+cheloutofriver = 0
 first = True
 with open('80.txt', 'r') as inf:
     for str in inf:
@@ -29,14 +32,42 @@ with open('80.txt', 'r') as inf:
             x1, y1, x2, y2 = s[0], s[1], s[2], s[3]
             first = False
         else:
-            x, y  = s[0], s[1]
-            yr = ((x-x1)/(x2-x1))*(y2-y1)+y1
-            print (x, y, yr)
+            x, y = s[0], s[1]
+            # if x1 <= x <= x2 or y1 <= y <= y2:
+            xr = ((y - y1) / (y2 - y1)) * (x2 - x1) + x1
+            if x < xr:
+                r += 'П'
+            elif x > xr:
+                r += 'И'
+            else:
+                print('Ну и мудаки составляли это задание!')
+#             else:
+#                 cheloutofriver += 1
+#
+# print ("{0} человек за пределами реки".format(cheloutofriver))
+print(r)
+rx = r
+
+r = ''
+
+first = True
+with open('80.txt', 'r') as inf:
+    for str in inf:
+        s = [int(i) for i in str.split()]
+        if first:
+            x1, y1, x2, y2 = s[0], s[1], s[2], s[3]
+            first = False
+        else:
+            x, y = s[0], s[1]
+            yr = ((Decimal(x) - Decimal(x1)) / (Decimal(x2) - Decimal(x1))) * (y2 - y1) + y1
             if y > yr:
                 r += 'П'
             elif y < yr:
                 r += 'И'
             else:
-                print ('Ну и мудаки составляли это задание!')
+                print('Ну и мудаки составляли это задание!')
 
 print(r)
+ry = r
+
+print(rx == ry)
