@@ -18,12 +18,30 @@
 
 Вам предлагается написать такую программу для генерации ответного послания. Удачи!
 """
-from operator import itemgetter
+
+
+def sort_as_microsoft(lst):
+    """
+    :param lst: [слово, частота]
+    :return: список слов в порядке убывания частоты
+        при одинаковой частоте первым берется то, которое было первым в тексте.
+    """
+    l = lst.copy()
+    r = []
+    while len(lst) != 0:
+        m = max([lst[i][1] for i in range(len(lst))])
+        for i in range(len(lst)):
+            if lst[i][1] == m:
+                r.append(lst.pop(i)[0])
+                break
+    return r
+
 
 def max_count_world(lst):
     c=0
     w=''
     #lst = sorted(lst)
+    #lst.sort()
     for i in range(len(lst)):
         ww = lst[i]
         cc = lst.count(ww)
@@ -33,10 +51,9 @@ def max_count_world(lst):
 
     return w
 
-d = {}
+
+d = []
 r = ""
-r2 = ""
-r3 = ""
 with open("101.data", 'r') as inf:
     for line in inf:
         data = line.strip()
@@ -44,37 +61,40 @@ with open("101.data", 'r') as inf:
 s = data.split()
 
 # Определим значимые пары
+data = []
+# f = open('pairs.txt', 'w')
+# Определим значимые пары
 for i in range(len(s)-1):
     ps = s[i]+' '+s[i+1]
-    if ps not in d:
-        if data.count(ps)>1:
-            d.update({ps: data.count(ps)})
+    data.append(ps)
 
-d = sorted(d.items(), key=itemgetter(1), reverse=True)
-print(d)
+for ps in data:
+    if data.count(ps) > 15:
+        d.append(ps)
+        # f.write(ps + '\n')
+# for sss in d:
+#     print(sss)
 
-d2 = {}
-ds = []
+# сейчас в d - список значащих пар (неупорядоченный)
+
+# Можно поробовать другой способ подбора пар.
+# Сначала взять самую повторяющуюся, потом очистить текст от нее.
+# и так далее, пока частота не опустится ниже заданного значения
+
+ds = [] # список первых слов в порядке их появления
+d2 = {} # словарь первыйх слов и пар к ним
 for i in range(len(d)):
-    first, second = d[i][0].split()
+    first, second = d[i].split()
     if first in d2:
         d2[first].append(second)
     else:
         d2.update({first: [second]})
-        #ds.append(first)
-ds = sorted([[k,len(v)] for k,v in d2.items()], key=itemgetter(1), reverse=True)
-print(ds)
-ds = [ds[i][0] for i in range(len(ds)) ]
-print(ds)
+        ds.append(first)
+
+# теперь надо упорядочить ds
+ds = sort_as_microsoft([[ds[i], len(d2[ds[i]])] for i in range(len(ds))])
 
 for i in range(len(ds)):
-    r+= ds[i] + max_count_world(d2[ds[i]])
-    r2+= ds[i] + max_count_world(d2[ds[i]]) + " "
-    r3+= ds[i] + " " + max_count_world(d2[ds[i]]) + " "
+    r += ds[i] + " " + max_count_world(d2[ds[i]]) + " "
 
 print(r)
-print(r2)
-print(r3)
-#l = sorted(d.items(), key=itemgetter(1), reverse=True)
-
-#print(max_count_world(['aaa', 'bbb', 'ccc', 'bbb']))
