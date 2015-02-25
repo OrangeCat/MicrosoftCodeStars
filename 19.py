@@ -1,6 +1,6 @@
 d ={}
 
-with open("96.txt", 'r', encoding="UTF-8") as inf:
+with open("data/19.data", 'r', encoding="UTF-8") as inf:
     for st in inf:
         s = st.strip()
         if s in d:
