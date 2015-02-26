@@ -10,8 +10,8 @@
 (т.е. муз, которые ни с кем не общаются, не существует).
 Узнай, сколько всего языков существует у муз.
 """
-d = {} #Словарь содержащий номер языка и говорящих на нем.
-n = 0 #Кол-во существующих языков.
+d = {}  # Словарь содержащий номер языка и говорящих на нем.
+n = 0  # Кол-во существующих языков.
 with open('data/03.data', 'r') as inf:
     for str in inf:
         s1 = str.split()[0]
@@ -24,18 +24,17 @@ with open('data/03.data', 'r') as inf:
             elif s2 in item:
                 s2key = key
 
-        if s1key==s2key==None:
+        if s1key == s2key == None:
             n += 1
             d[n] = {s1, s2}
-        elif s1key==s2key:
-            print ("WoW!!!")
-        elif s1key==None:
+        elif s1key == s2key:
+            print("WoW!!!")
+        elif s1key == None:
             d[s2key].add(s1)
-        elif s2key==None:
+        elif s2key == None:
             d[s1key].add(s2)
         else:
             d[s1key].update(d[s2key])
             del(d[s2key])
 
-print (len(d))
-#print(d)
+print(len(d))

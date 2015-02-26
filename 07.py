@@ -17,8 +17,8 @@
 определи на сколько процентов песня твоя.
 """
 
-myletters = {'x','y','z','w'}
-altletters = {'a','b','c','d'}
+myletters = {'x', 'y', 'z', 'w'}
+altletters = {'a', 'b', 'c', 'd'}
 s = ''
 
 with open('data/07.data', 'r', encoding="utf-8") as inf:
@@ -43,4 +43,4 @@ for c in s:
             mlen_max = max(mlen_max, mlen)
             mlen = 0
 
-print (mlen_max/(mlen_max+alen_max)*100)
+print(mlen_max/(mlen_max+alen_max)*100)
