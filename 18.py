@@ -55,7 +55,7 @@ for d in data:
 
 if result:
     for res in result:
-        print (res, end=' ')
-    print (len(result)*499)
+        print(res, end=' ')
+    print(len(result)*499)
 else:
     print("0")

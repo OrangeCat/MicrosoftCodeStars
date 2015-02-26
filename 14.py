@@ -66,7 +66,8 @@ print(r)
 #             first = False
 #         else:
 #             x, y = s[0], s[1]
-#             yr = ((Decimal(x) - Decimal(x1)) / (Decimal(x2) - Decimal(x1))) * (y2 - y1) + y1
+#             yr = ((Decimal(x) - Decimal(x1)) / (Decimal(x2) - Decimal(x1)))\
+#                  * (y2 - y1) + y1
 #             if y > yr:
 #                 r += 'П'
 #             elif y < yr:

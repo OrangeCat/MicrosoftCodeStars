@@ -32,26 +32,26 @@ with open('data/11.data', 'r') as inf:
         s = str
 
 alfavit = "abcdefghijklmnopqrstuvwxyz"
-result =''
+result = ''
 
 stack = []
 stack.append(10)
 sss = stack.pop()
 
 for c in s:
-    if c=='Z':
+    if c == 'Z':
         stack.append(0)
-    elif c=='+':
+    elif c == '+':
         stack.append(stack.pop() + stack.pop())
-    elif c=='*':
+    elif c == '*':
         stack.append(stack.pop() * stack.pop())
-    elif c=='!':
+    elif c == '!':
         result += alfavit[stack.pop()]
-    elif c=='#':
+    elif c == '#':
         stack.append(stack.pop() + 1)
-    elif c=='%':
+    elif c == '%':
         pass
-    elif c=='~':
+    elif c == '~':
         result += ' '
 
-print (result)
+print(result)

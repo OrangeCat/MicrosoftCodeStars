@@ -27,51 +27,51 @@ with open('data/12.data', 'r') as inf:
         s = str
 
 alfavit = "abcdefghijklmnopqrstuvwxyz"
-result =''
+result = ''
 
 stack = []
 stack.append(10)
 sss = stack.pop()
 
-#for i in range(len(s)):
+# for i in range(len(s)):
 i = 0
 while i < len(s):
     c = s[i]
-    if c=='Z':
+    if c == 'Z':
         stack.append(0)
-    elif c=='+':
+    elif c == '+':
         stack.append(stack.pop() + stack.pop())
-    elif c=='*':
+    elif c == '*':
         stack.append(stack.pop() * stack.pop())
-    elif c=='!':
+    elif c == '!':
         result += alfavit[stack.pop()]
-    elif c=='#':
+    elif c == '#':
         stack.append(stack.pop() + 1)
-    elif c=='%':
+    elif c == '%':
         pass
-    elif c=='~':
+    elif c == '~':
         result += ' '
-    elif c=='$':
+    elif c == '$':
         e1 = stack.pop()
         e2 = stack.pop()
         stack.append(e1)
         stack.append(e2)
-    elif c=='@':
+    elif c == '@':
         e = stack.pop()
         stack.append(e)
         stack.append(e)
-    elif c=='-':
+    elif c == '-':
         stack.append(stack.pop() - 1)
-    elif c=='[':
+    elif c == '[':
         metka = i
-    elif c=='<':
+    elif c == '<':
         e = stack.pop()
         if e != 0:
-            i=metka
+            i = metka
         # else:
         #     stack.append(e)
-    elif c=="`":
+    elif c == "`":
         stack.pop()
     i += 1
 
-print (result)
+print(result)
