@@ -25,7 +25,7 @@ lst = [[0 for i in range(n)] for i in range(24)]
 for i in range(n):
     b = int(data[i][0])
     l = int(data[i][1])
-    for j in range(b-1,b+l-1):
+    for j in range(b-1, b+l-1):
         n = j
         if j > 23:
             j -= 23

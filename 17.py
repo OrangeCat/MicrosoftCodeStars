@@ -21,6 +21,7 @@
 соответствующей песни.
 """
 
+
 def liney(x1, y1, x2, y2, x):
     y = ((x - x1) / (x2 - x1)) * (y2 - y1) + y1
     return y
@@ -40,7 +41,7 @@ for d in data:
 
     nomer += 1
 
-    tr = sorted( [ [d[0], d[1]], [d[2], d[3]], [d[4], d[5]] ] )
+    tr = sorted([[d[0], d[1]], [d[2], d[3]], [d[4], d[5]]])
     # Надо определить средняя точка выше или ниже
     x1, y1 = tr[0][0], tr[0][1]
     x2, y2 = tr[1][0], tr[1][1]
@@ -48,36 +49,35 @@ for d in data:
 
     yr2 = liney(x1, y1, x3, y3, x2)
 
-
-    py1 =  liney(x1, y1, x3, y3, px)
-    py2 =  liney(x1, y1, x2, y2, px)
-    py3 =  liney(x2, y2, x3, y3, px)
+    py1 = liney(x1, y1, x3, y3, px)
+    py2 = liney(x1, y1, x2, y2, px)
+    py3 = liney(x2, y2, x3, y3, px)
 
     if y2 > yr2:
         if py >= py1 and py <= py2 and py <= py3:
-            #result += "0"
+            # result += "0"
             print("u", nomer)
-            #print("0")
+            # print("0")
             pass
         else:
             result += str(nomer) + " "
-            #print(nomer)
+            # print(nomer)
     elif y2 < yr2:
         if py <= py1 and py >= py2 and py >= py3:
             # result += "0"
             print("d", nomer)
-            #print("0")
+            # print("0")
             pass
         else:
             result += str(nomer) + " "
-            #print(nomer)
+            # print(nomer)
     else:
         print("На линии")
 
 if not result:
     result = "0"
 
-print (result)
+print(result)
 
 with open("data/17_result.txt", 'w') as inf:
     inf.write(result)

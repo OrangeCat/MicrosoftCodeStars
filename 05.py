@@ -12,5 +12,5 @@ for i1 in range(8):
                 for i5 in range(8):
                     for i6 in range(8):
                         if i1+i2+i3 == i4+i5+i6:
-                            n +=1
+                            n += 1
 print(n)

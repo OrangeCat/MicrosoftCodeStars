@@ -7,13 +7,14 @@
 Сколько часов потребуется на просмотр всех расстановок,
 если на просмотр одной расстановки требуется 10 секунд?
 """
-#factorial = lambda x: factorial(x - 1) * x if x > 1 else 1
-#print (factorial(104)*10/3600)
+# factorial = lambda x: factorial(x - 1) * x if x > 1 else 1
+# print (factorial(104)*10/3600)
+
 
 def fact(n):
-    f=1
+    f = 1
     for i in range(1, n+1):
-        f=f*i
+        f = f * i
     return f
-s=fact(104)*10//60//60
-print (s)
+s = fact(104) * 10 // 60 // 60
+print(s)

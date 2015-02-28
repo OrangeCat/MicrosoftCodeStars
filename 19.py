@@ -1,4 +1,4 @@
-d ={}
+d = {}
 
 with open("data/19.data", 'r', encoding="UTF-8") as inf:
     for st in inf:
@@ -9,8 +9,7 @@ with open("data/19.data", 'r', encoding="UTF-8") as inf:
             d.update({s: 0})
 
 m = max(d.values())
-res = sorted([k for k,v in d.items() if v==m])
+res = sorted([k for k, v in d.items() if v == m])
 
 for r in res:
-    print (r, end=", ")
-
+    print(r, end=", ")

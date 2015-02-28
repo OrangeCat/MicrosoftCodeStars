@@ -21,9 +21,9 @@
 with open("data/16.data", 'r') as inf, open("data/16.csv", 'w') as csv:
     for st in inf:
         for c in st:
-            if c=='0':
+            if c == '0':
                 csv.write('1;')
-            elif c=='1':
+            elif c == '1':
                 csv.write('0;')
         csv.write('\n')
 

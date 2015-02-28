@@ -39,10 +39,10 @@ def sort_as_microsoft(lst):
 
 
 def max_count_world(lst):
-    c=0
-    w=''
-    #lst = sorted(lst)
-    #lst.sort()
+    c = 0
+    w = ''
+    # lst = sorted(lst)
+    # lst.sort()
     for i in range(len(lst)):
         ww = lst[i]
         cc = lst.count(ww)
@@ -82,8 +82,8 @@ for ps in data:
 # Сначала взять самую повторяющуюся, потом очистить текст от нее.
 # и так далее, пока частота не опустится ниже заданного значения
 
-ds = [] # список первых слов в порядке их появления
-d2 = {} # словарь первыйх слов и пар к ним
+ds = []  # список первых слов в порядке их появления
+d2 = {}  # словарь первыйх слов и пар к ним
 for i in range(len(d)):
     first, second = d[i].split()
     if first in d2:

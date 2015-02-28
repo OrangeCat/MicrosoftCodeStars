@@ -23,17 +23,17 @@
 d = {}
 sum_shtraf = 0
 count = 0
-sum_balls =0
+sum_balls = 0
 
 with open('data/09.data', 'r') as inf:
     for str in inf:
         s = str.split()
         login = s[2]
-        s1 = int(s[0]) # здесь должен быть штраф
-        s2 = int(s[1]) # здесь должны быть очки
+        s1 = int(s[0])  # здесь должен быть штраф
+        s2 = int(s[1])  # здесь должны быть очки
 
         if login not in d:
-            d[login]=0
+            d[login] = 0
 
         d[login] += 1
 
@@ -44,11 +44,11 @@ with open('data/09.data', 'r') as inf:
 m = 0
 l = 0
 for k, v in d.items():
-    if v>m:
-        l=k
+    if v > m:
+        l = k
     m = max(v, m)
 
-print (int(sum_shtraf/count), sum_balls, l)
+print(int(sum_shtraf/count), sum_balls, l)
 
 # ответ -97 49266 pluto - подходит
 # но задание - полный бред

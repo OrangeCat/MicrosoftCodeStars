@@ -27,4 +27,4 @@ for i in range(max_s):
     cn += 1
     total += cn
 
-print (total)
+print(total)

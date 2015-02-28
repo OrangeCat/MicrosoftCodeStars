@@ -18,22 +18,22 @@
 Расшифруй текст рецензии, сохранив все знаки препинания.
 """
 
-from operator import itemgetter # multiple levels of sorting
+from operator import itemgetter  # multiple levels of sorting
 
 alfavit = "abcdefghijklmnopqrstuvwxyz"
 
-i=0
+i = 0
 with open('data/10.data', 'r') as inf:
     for str in inf:
         if i == 0:
-            s1 = str # Частотный словарь
+            s1 = str  # Частотный словарь
             i += 1
         if i == 1:
-            s2 = str # Текст статьи
+            s2 = str  # Текст статьи
 
-d = {}  # Здесь соберу частоту встречания каждой буквы
-dl = [] # а здесь буквы в порядке их появления/
-        #Это важно так как есть буквы с одинаковым кол-вом появления в тексте.
+d = {}   # Здесь соберу частоту встречания каждой буквы
+dl = []  # а здесь буквы в порядке их появления/
+# Это важно так как есть буквы с одинаковым кол-вом появления в тексте.
 for c in s2:
     if c not in alfavit:
         continue
@@ -48,9 +48,9 @@ for zn in dl:
 
 dl = sorted(dl, key=itemgetter(1), reverse=True)
 
-dt = {} # словарь для перевода
+dt = {}  # словарь для перевода
 for i in range(min(len(dl), len(s1))):
-    dt[dl[i][0]]=s1[i]
+    dt[dl[i][0]] = s1[i]
 
 result = ''
 for c in s2:
@@ -59,4 +59,4 @@ for c in s2:
     else:
         result += c
 
-print (result)
+print(result)
